@@ -5,9 +5,11 @@ import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 
 interface ITodoListProps {
   todos: todoModel[];
+  onToggle: Function;
+  onDelete: Function;
 }
 
-function TodoList({ todos }: ITodoListProps) {
+function TodoList({ todos, onToggle, onDelete }: ITodoListProps) {
   if (todos.length < 1) {
     return (
       <div className="flex flex-col justify-center items-center py-10">
@@ -21,10 +23,15 @@ function TodoList({ todos }: ITodoListProps) {
       {todos.map(({ id, title, isDone }) => (
         <TodoItem
           key={id}
+          id={id}
           title={title}
           isDone={isDone}
-          handleToggle={() => {}}
-          handleDelete={() => {}}
+          onToggle={(id: string) => {
+            onToggle(id);
+          }}
+          onDelete={(id: string) => {
+            onDelete(id);
+          }}
         />
       ))}
     </>

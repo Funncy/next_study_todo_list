@@ -25,11 +25,27 @@ const Home: NextPage = () => {
     );
   };
 
+  const toggleTodo = (id: string) => {
+    const index = todos.findIndex((e) => e.id === id);
+    if (index === -1) return; //다이얼로그 추가 필요
+
+    const copied = todos.concat([]);
+    copied[index].isDone = !copied[index].isDone;
+    setTodos(copied);
+  };
+
+  const deleteTodo = (id: string) => {
+    const index = todos.findIndex((e) => e.id === id);
+    if (index === -1) return; //다이얼로그 추가 필요
+
+    setTodos(todos.filter((e) => e.id !== id));
+  };
+
   return (
     <div>
       <div>
         <Header active={1} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
         <InputBox
           onSubmit={(title: string) => {
             addTodo(title);
