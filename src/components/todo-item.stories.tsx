@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import TodoItem from "../src/components/todo-item";
+import TodoItem from "./todo-item";
 
 export default {
   title: "TodoItem",
@@ -11,6 +11,20 @@ export default {
   // },
 } as ComponentMeta<typeof TodoItem>;
 
-const Template: ComponentStory<typeof TodoItem> = (args) => <TodoItem />;
+const Template: ComponentStory<typeof TodoItem> = (args) => (
+  <TodoItem {...args} />
+);
 
-export const Init = Template.bind({});
+export const Default = Template.bind({});
+
+Default.args = {
+  title: "test",
+  isDone: false,
+};
+
+export const Chekced = Template.bind({});
+
+Chekced.args = {
+  title: "test",
+  isDone: true,
+};
