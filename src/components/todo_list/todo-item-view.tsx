@@ -10,7 +10,7 @@ interface ITodoItemProps {
   onDelete: Function;
 }
 
-export default function TodoItem({
+export default function TodoItemView({
   id,
   title,
   isDone,

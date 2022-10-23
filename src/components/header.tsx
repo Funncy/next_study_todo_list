@@ -3,7 +3,7 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import UnderlineTextButton from "./underline-text-button";
 
 interface IHeaderProps {
-  active: number;
+  active: "All" | "Active" | "Completed";
   //enum으로?
 }
 
@@ -12,9 +12,9 @@ function Header({ active }: IHeaderProps) {
     <div className="flex justify-between ">
       <WbSunnyIcon />
       <div>
-        <UnderlineTextButton active={active !== 2 && active !== 3} text="All" />
-        <UnderlineTextButton active={active === 2} text="Active" />
-        <UnderlineTextButton active={active === 3} text="Completed" />
+        <UnderlineTextButton active={active === "All"} text={active} />
+        <UnderlineTextButton active={active === "Active"} text={active} />
+        <UnderlineTextButton active={active === "Completed"} text={active} />
       </div>
     </div>
   );

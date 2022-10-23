@@ -1,18 +1,18 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import TodoItem from "./todo-item";
+import TodoItemView from "./todo-item-view";
 
 export default {
-  title: "TodoItem",
-  component: TodoItem,
+  title: "TodoItemView",
+  component: TodoItemView,
   // parameters: {
   //     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
   //     layout: 'fullscreen',
   // },
-} as ComponentMeta<typeof TodoItem>;
+} as ComponentMeta<typeof TodoItemView>;
 
-const Template: ComponentStory<typeof TodoItem> = (args) => (
-  <TodoItem {...args} />
+const Template: ComponentStory<typeof TodoItemView> = (args) => (
+  <TodoItemView {...args} />
 );
 
 export const Default = Template.bind({});
