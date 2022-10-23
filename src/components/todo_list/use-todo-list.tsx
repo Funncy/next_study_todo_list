@@ -1,11 +1,12 @@
 import React from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { todoModel } from "../../model/todo";
-import { todoListState } from "../../atom/todoState";
+import { filteredTodoListState, todoListState } from "../../atom/todoState";
 import uuid from "react-uuid";
 
 function useTodoList() {
-  const [todoList, setTodoList] = useRecoilState<todoModel[]>(todoListState);
+  const setTodoList = useSetRecoilState(todoListState);
+  const todoList = useRecoilValue(filteredTodoListState);
 
   const addTodo = (title: string) => {
     setTodoList(
