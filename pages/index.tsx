@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import TodoItemView from "../src/components/todo_list/todo-item-view";
 import { Button } from "@mui/material";
-import Header from "src/components/header";
+import Header from "src/components/header/header";
 import TodoList from "../src/components/todo_list/todo-list";
 import InputBox from "../src/components/input_box/input-box";
 import { useState } from "react";

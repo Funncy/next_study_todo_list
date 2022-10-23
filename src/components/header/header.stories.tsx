@@ -13,20 +13,20 @@ export default {
 
 const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 
-export const Default = Template.bind({});
-
-Default.args = {
-  active: 1,
-};
-
-export const Active = Template.bind({});
-
-Active.args = {
-  active: 2,
-};
-
-export const Completed = Template.bind({});
-
-Completed.args = {
-  active: 3,
-};
+// export const Default = Template.bind({});
+//
+// Default.args = {
+//   active: 1,
+// };
+//
+// export const Active = Template.bind({});
+//
+// Active.args = {
+//   active: 2,
+// };
+//
+// export const Completed = Template.bind({});
+//
+// Completed.args = {
+//   active: 3,
+// };
