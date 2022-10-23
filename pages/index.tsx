@@ -5,7 +5,7 @@ import TodoItem from "../src/components/todo-item";
 import { Button } from "@mui/material";
 import Header from "src/components/header";
 import TodoList from "../src/components/todo-list";
-import InputBox from "../src/components/input-box";
+import InputBox from "../src/components/input_box/input-box";
 import { useState } from "react";
 import { todoModel } from "../src/model/todo";
 import uuid from "react-uuid";
