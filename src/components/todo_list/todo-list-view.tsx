@@ -27,11 +27,9 @@ function TodoListView({ todoList, onToggle, onDelete }: ITodoListViewProps) {
           title={title}
           isDone={isDone}
           onToggle={(e: React.MouseEvent<HTMLButtonElement>) => {
-            e.preventDefault();
             onToggle(id);
           }}
           onDelete={(e: React.MouseEvent<HTMLDivElement>) => {
-            e.preventDefault();
             onDelete(id);
           }}
         />

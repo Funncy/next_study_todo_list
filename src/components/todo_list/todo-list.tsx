@@ -6,49 +6,30 @@ import { todoListState } from "../../atom/todoState";
 import { RecoilState, useRecoilState } from "recoil";
 import uuid from "react-uuid";
 import TodoListView from "./todo-list-view";
+import useTodoList from "./use-todo-list";
+import InputBox from "../input_box/input-box";
 
-interface ITodoListProps {
-  onToggle: Function;
-  onDelete: Function;
+interface Action {
+  type: string;
+  payload: todoModel[];
 }
 
-function TodoList({ onToggle, onDelete }: ITodoListProps) {
-  const [todoList, setTodoList] = useRecoilState<todoModel[]>(todoListState);
-
-  const addTodo = (title: string) => {
-    setTodoList(
-      todoList.concat([
-        {
-          id: uuid(),
-          title: title,
-          isDone: false,
-        },
-      ])
-    );
-  };
-
-  const toggleTodo = (id: string) => {
-    const index = todoList.findIndex((e) => e.id === id);
-    if (index === -1) return; //다이얼로그 추가 필요
-
-    const copied = todoList.concat([]);
-    copied[index].isDone = !copied[index].isDone;
-    setTodoList(copied);
-  };
-
-  const deleteTodo = (id: string) => {
-    const index = todoList.findIndex((e) => e.id === id);
-    if (index === -1) return; //다이얼로그 추가 필요
-
-    setTodoList(todoList.filter((e) => e.id !== id));
-  };
+function TodoList() {
+  const { todoList, addTodo, toggleTodo, deleteTodo } = useTodoList();
 
   return (
-    <TodoListView
-      todoList={todoList}
-      onToggle={toggleTodo}
-      onDelete={deleteTodo}
-    />
+    <>
+      <TodoListView
+        todoList={todoList}
+        onToggle={toggleTodo}
+        onDelete={deleteTodo}
+      />
+      <InputBox
+        onSubmit={(title: string) => {
+          addTodo(title);
+        }}
+      />
+    </>
   );
 }
 
